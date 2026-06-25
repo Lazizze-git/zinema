@@ -1,0 +1,186 @@
+/* ============================================================
+   BASE — variables, typographie, layout, helpers
+   ============================================================ */
+
+:root {
+  /* Palette : noir/blanc + 1 accent (rouge cinéma, identité Zinema) */
+  --paper: #f3f2ee;       /* blanc cassé, chaud */
+  --paper-pure: #fbfaf7;
+  --ink: #131211;         /* presque noir */
+  --ink-soft: #6c6963;    /* texte secondaire */
+  --black: #0c0b0a;       /* sections sombres */
+  --accent: #e0241a;      /* rouge */
+  --accent-ink: #ffffff;
+  --line: rgba(19, 18, 17, 0.16);
+  --line-soft: rgba(19, 18, 17, 0.08);
+
+  --font: "Space Grotesk", "Helvetica Neue", Arial, sans-serif;
+
+  /* Typo fluide */
+  --fs-mono: clamp(0.66rem, 0.6rem + 0.3vw, 0.78rem); /* labels / eyebrows */
+  --fs-body: clamp(0.95rem, 0.9rem + 0.25vw, 1.075rem);
+  --fs-lead: clamp(1.15rem, 1rem + 0.8vw, 1.6rem);
+  --fs-h3: clamp(1.4rem, 1.1rem + 1.4vw, 2.1rem);
+  --fs-h2: clamp(2rem, 1.3rem + 3.2vw, 4rem);
+  --fs-display: clamp(3rem, 1rem + 11vw, 9.5rem);
+
+  /* Rythme */
+  --wrap: 1320px;
+  --gutter: clamp(1.15rem, 4vw, 3.25rem);
+  --section-y: clamp(3.5rem, 7vw, 7.5rem);
+  --header-h: clamp(62px, 8vw, 78px);
+  --radius: 4px;
+}
+
+html { background: var(--paper); }
+
+/* Ancrage : réserve la hauteur du header fixe quand on saute à une section. */
+.hero,
+.section,
+[id] { scroll-margin-top: calc(var(--header-h) + 14px); }
+
+body {
+  background: var(--paper);
+  color: var(--ink);
+  font-family: var(--font);
+  font-size: var(--fs-body);
+  font-weight: 400;
+  letter-spacing: 0.01em;
+}
+
+/* ---- Conteneur ---- */
+.wrap {
+  width: 100%;
+  max-width: var(--wrap);
+  margin-inline: auto;
+  padding-inline: var(--gutter);
+}
+
+.section {
+  padding-block: var(--section-y);
+}
+
+.section--dark {
+  background: var(--black);
+  color: var(--paper);
+}
+
+.section--dark .section-head__line { background: rgba(255, 255, 255, 0.22); }
+.section--dark .eyebrow { color: var(--paper); }
+
+/* ---- Labels / eyebrows monospacés ---- */
+.eyebrow {
+  font-size: var(--fs-mono);
+  font-weight: 500;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+}
+
+.accent { color: var(--accent); }
+
+/* ---- En-tête de section ---- */
+.section-head {
+  margin-bottom: clamp(2rem, 5vw, 3.5rem);
+}
+
+.section-head__title {
+  font-size: var(--fs-h2);
+  font-weight: 600;
+  letter-spacing: -0.02em;
+}
+
+.section-head__sub {
+  margin-top: 0.9rem;
+  max-width: 46ch;
+  color: var(--ink-soft);
+  font-size: var(--fs-body);
+}
+
+.section--dark .section-head__sub { color: rgba(255, 255, 255, 0.66); }
+
+/* ---- Boutons ---- */
+.btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.6rem;
+  padding: 0.85rem 1.5rem;
+  font-weight: 500;
+  font-size: 0.95rem;
+  letter-spacing: 0.01em;
+  border-radius: 999px;
+  border: 1.5px solid var(--ink);
+  transition: transform 0.25s ease-out, background 0.25s ease-out,
+    color 0.25s ease-out, box-shadow 0.25s ease-out;
+}
+
+.btn:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 8px 24px rgba(19, 18, 17, 0.14);
+}
+
+.btn--solid {
+  background: var(--ink);
+  color: var(--paper);
+}
+.btn--solid:hover { background: var(--accent); border-color: var(--accent); }
+
+.btn--accent {
+  background: var(--accent);
+  border-color: var(--accent);
+  color: var(--accent-ink);
+}
+.btn--ghost { background: transparent; }
+.btn--ghost:hover { background: var(--ink); color: var(--paper); }
+
+.section--dark .btn { border-color: var(--paper); }
+.section--dark .btn--ghost:hover { background: var(--paper); color: var(--black); }
+
+/* ---- Lien souligné animé ---- */
+.link-underline {
+  position: relative;
+  font-weight: 500;
+}
+.link-underline::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  bottom: -2px;
+  width: 0;
+  height: 1.5px;
+  background: currentColor;
+  transition: width 0.3s ease-out;
+}
+.link-underline:hover::after { width: 100%; }
+
+/* ---- Texte utilitaire ---- */
+.lead { font-size: var(--fs-lead); font-weight: 400; line-height: 1.35; }
+.muted { color: var(--ink-soft); }
+.uppercase { text-transform: uppercase; }
+
+/* ---- Reveal au scroll ----
+   Gardé caché UNIQUEMENT si le JS tourne (html.js). Sans JS, tout reste visible. */
+html.js .reveal {
+  opacity: 0;
+  transform: translateY(22px);
+  transition: opacity 0.6s ease-out, transform 0.6s ease-out;
+}
+html.js .reveal.is-visible {
+  opacity: 1;
+  transform: none;
+}
+html.js .reveal[data-delay="1"] { transition-delay: 0.08s; }
+html.js .reveal[data-delay="2"] { transition-delay: 0.16s; }
+html.js .reveal[data-delay="3"] { transition-delay: 0.24s; }
+
+.flush-top { padding-top: 0; }
+.mt-1 { margin-top: 1rem; }
+
+.visually-hidden {
+  position: absolute;
+  width: 1px; height: 1px;
+  padding: 0; margin: -1px;
+  overflow: hidden;
+  clip: rect(0 0 0 0);
+  white-space: nowrap;
+  border: 0;
+}

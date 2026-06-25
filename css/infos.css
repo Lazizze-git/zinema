@@ -1,0 +1,73 @@
+/* ============================================================
+   INFOS PRATIQUES
+   ============================================================ */
+.infos__grid {
+  display: grid;
+  gap: clamp(1.5rem, 3vw, 1px);
+  background: var(--line);
+  border: 1px solid var(--line);
+  border-radius: var(--radius);
+  overflow: hidden;
+}
+.info-card {
+  background: var(--paper);
+  padding: clamp(1.5rem, 3vw, 2.2rem);
+}
+.info-card__label {
+  font-size: var(--fs-mono);
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: var(--accent);
+  font-weight: 600;
+  margin-bottom: 1.1rem;
+}
+
+.price-row {
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+  gap: 1rem;
+  padding: 0.6rem 0;
+  border-bottom: 1px solid var(--line-soft);
+}
+.price-row:last-child { border-bottom: none; }
+.price-row__amount {
+  font-size: 1.5rem;
+  font-weight: 600;
+  letter-spacing: -0.02em;
+  white-space: nowrap;
+}
+.price-row__amount small { font-size: 0.8rem; color: var(--ink-soft); font-weight: 400; }
+.price-row__label { font-size: 0.9rem; color: var(--ink-soft); max-width: 22ch; text-align: right; }
+
+.info-list li {
+  padding: 0.5rem 0;
+  font-size: 0.95rem;
+  border-bottom: 1px solid var(--line-soft);
+}
+.info-list li:last-child { border-bottom: none; }
+.info-list b { font-weight: 600; }
+
+.info-flag {
+  display: inline-block;
+  font-size: 0.78rem;
+  font-weight: 600;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  color: var(--accent);
+  border: 1px solid var(--accent);
+  border-radius: 999px;
+  padding: 0.25rem 0.7rem;
+  margin: 0.2rem 0.3rem 0.2rem 0;
+}
+
+.info-contact a { font-weight: 500; }
+.info-contact .line { display: block; padding: 0.35rem 0; font-size: 0.98rem; }
+.info-contact .line span { color: var(--ink-soft); display: inline-block; min-width: 4.5rem; font-size: 0.82rem; text-transform: uppercase; letter-spacing: 0.08em; }
+
+@media (min-width: 720px) {
+  .infos__grid { grid-template-columns: repeat(2, 1fr); }
+}
+@media (min-width: 1080px) {
+  .infos__grid { grid-template-columns: repeat(4, 1fr); }
+}

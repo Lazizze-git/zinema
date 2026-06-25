@@ -1,0 +1,204 @@
+/* ============================================================
+   BARRE D'ANNONCE + HEADER + LOGO CUBES + NAV
+   ============================================================ */
+
+/* ---- Bandeau d'annonce ---- */
+.announce {
+  background: var(--accent);
+  color: var(--accent-ink);
+  font-size: var(--fs-mono);
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  font-weight: 500;
+}
+.announce__inner {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.7rem;
+  text-align: center;
+  padding: 0.55rem var(--gutter);
+  min-height: 38px;
+}
+.announce__dot { opacity: 0.7; }
+.announce__close {
+  position: absolute;
+  right: var(--gutter);
+  color: inherit;
+  font-size: 1.1rem;
+  line-height: 1;
+  opacity: 0.85;
+}
+.announce { position: relative; }
+.announce__close:hover { opacity: 1; }
+.announce[hidden] { display: none; }
+
+/* ---- Header ---- */
+.header {
+  position: sticky;
+  top: 0;
+  z-index: 50;
+  background: color-mix(in srgb, var(--paper) 86%, transparent);
+  backdrop-filter: blur(10px);
+  border-bottom: 1px solid var(--line-soft);
+  transition: border-color 0.3s ease-out;
+}
+.header.is-scrolled { border-bottom-color: var(--line); }
+
+.header__inner {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1rem;
+  height: clamp(62px, 8vw, 78px);
+}
+
+/* ---- Logo officiel (cubes ZINEMA) ---- */
+.logo {
+  display: inline-flex;
+  align-items: center;
+}
+.logo__img {
+  height: clamp(26px, 4.6vw, 34px);
+  width: auto;
+  transition: opacity 0.3s ease-out;
+}
+.logo:hover .logo__img { opacity: 0.72; }
+
+/* ---- Navigation ---- */
+.nav__list {
+  display: flex;
+  align-items: center;
+  gap: clamp(1.2rem, 2.4vw, 2.3rem);
+}
+.nav__link {
+  font-size: 0.9rem;
+  font-weight: 500;
+  letter-spacing: 0.01em;
+  position: relative;
+  padding-block: 0.4rem;
+  color: var(--ink-soft);
+  transition: color 0.25s ease-out;
+}
+.nav__link::after {
+  content: "";
+  position: absolute;
+  left: 0; bottom: 0;
+  width: 0; height: 1.5px;
+  background: var(--accent);
+  transition: width 0.3s ease-out;
+}
+.nav__link:hover,
+.nav__link.is-active { color: var(--ink); }
+.nav__link:hover::after,
+.nav__link.is-active::after { width: 100%; }
+
+.nav__cta { margin-left: 0.5rem; }
+
+/* ---- Burger ---- */
+.burger {
+  display: grid;
+  gap: 5px;
+  width: 30px;
+  padding: 6px 0;
+}
+.burger span {
+  display: block;
+  height: 2px;
+  width: 100%;
+  background: var(--ink);
+  transition: transform 0.3s ease-out, opacity 0.2s ease-out;
+}
+.burger.is-open span:nth-child(1) { transform: translateY(7px) rotate(45deg); }
+.burger.is-open span:nth-child(2) { opacity: 0; }
+.burger.is-open span:nth-child(3) { transform: translateY(-7px) rotate(-45deg); }
+
+/* ---- Comportement responsive ---- */
+.nav { display: none; }
+.burger { display: grid; }
+
+@media (min-width: 940px) {
+  .burger { display: none; }
+  .nav {
+    display: block !important;
+    position: static;
+    height: auto;
+    background: none;
+    padding: 0;
+  }
+  .nav__list { flex-direction: row; }
+  .nav__cta { display: inline-flex; }
+  .nav__foot { display: none; }
+}
+
+/* ---- Menu mobile plein écran ---- */
+@media (max-width: 939px) {
+  .nav {
+    position: fixed;
+    inset: 0;
+    display: block;
+    background: var(--black);
+    color: var(--paper);
+    padding: clamp(7.5rem, 22vw, 9.5rem) var(--gutter) 2.5rem;
+    transform: translateY(-100%);
+    transition: transform 0.45s cubic-bezier(0.7, 0, 0.2, 1);
+    z-index: 40;
+    overflow-y: auto;
+  }
+  .nav.is-open { transform: translateY(0); }
+  .nav__list {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: clamp(0.7rem, 3.2vw, 1.25rem);
+  }
+  .nav__link {
+    font-size: clamp(1.85rem, 8vw, 2.5rem);
+    font-weight: 400;
+    color: rgba(243, 242, 238, 0.6);
+    letter-spacing: -0.025em;
+    line-height: 1.1;
+    padding-block: 0.1rem;
+    transition: color 0.35s ease-out, transform 0.35s ease-out;
+  }
+  /* survol tout en douceur : fondu vers le blanc + léger glissement, pas d'underline */
+  .nav__link::after { display: none; }
+  .nav__link:hover,
+  .nav__link.is-active {
+    color: #fff;
+    transform: translateX(6px);
+  }
+  .nav__cta {
+    margin: clamp(1.8rem, 7vw, 2.6rem) 0 0;
+    font-size: 1rem;
+    background: var(--accent);
+    border-color: var(--accent);
+    color: #fff;
+  }
+  .nav__cta:hover { transform: translateY(-2px); }
+
+  /* Pied de menu discret */
+  .nav__foot {
+    margin-top: clamp(2.5rem, 10vw, 4rem);
+    padding-top: 1.5rem;
+    border-top: 1px solid rgba(255, 255, 255, 0.14);
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+    font-size: 0.92rem;
+    color: rgba(243, 242, 238, 0.5);
+  }
+  .nav__foot a { color: rgba(243, 242, 238, 0.85); width: max-content; }
+  .nav__foot a:hover { color: var(--accent); }
+  body.menu-open { overflow: hidden; }
+
+  /* Menu ouvert : header transparent pour laisser voir le menu noir,
+     logo inversé en blanc et burger blanc => toujours visibles + cliquables. */
+  body.menu-open .header {
+    background: transparent;
+    border-color: transparent;
+    -webkit-backdrop-filter: none;
+    backdrop-filter: none;
+  }
+  body.menu-open .logo__img { filter: invert(1); }
+  body.menu-open .burger span { background: var(--paper); }
+}
