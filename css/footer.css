@@ -14,13 +14,11 @@
   border-bottom: 1px solid rgba(255,255,255,0.16);
 }
 
-.footer__mark {
-  font-size: clamp(3rem, 14vw, 8rem);
-  font-weight: 600;
-  letter-spacing: -0.04em;
-  line-height: 0.85;
+.footer__logo {
+  height: clamp(42px, 11vw, 80px);
+  width: auto;
+  filter: invert(1); /* logo noir -> blanc sur fond sombre */
 }
-.footer__mark span { color: var(--accent); }
 .footer__tag {
   margin-top: 1rem;
   color: rgba(255,255,255,0.6);

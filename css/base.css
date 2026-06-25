@@ -34,10 +34,11 @@
 
 html { background: var(--paper); }
 
-/* Ancrage : réserve la hauteur du header fixe quand on saute à une section. */
+/* Ancrage : au clic, le titre de section tombe pile à 32px sous le header.
+   Le calc annule le padding haut de la section pour un espace constant. */
 .hero,
-.section,
-[id] { scroll-margin-top: calc(var(--header-h) + 14px); }
+.section { scroll-margin-top: calc(var(--header-h) + 32px - var(--section-y)); }
+.section.flush-top { scroll-margin-top: calc(var(--header-h) + 32px); }
 
 body {
   background: var(--paper);

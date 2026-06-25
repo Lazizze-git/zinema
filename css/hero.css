@@ -6,12 +6,16 @@
   border-bottom: 1px solid var(--line);
 }
 
+/* Inscriptions du haut : masquées sur mobile, visibles à partir des tablettes */
 .hero__eyebrow {
-  display: flex;
+  display: none;
   flex-wrap: wrap;
   gap: 0.5rem 1.2rem;
   color: var(--ink-soft);
   margin-bottom: clamp(1.5rem, 4vw, 2.5rem);
+}
+@media (min-width: 768px) {
+  .hero__eyebrow { display: flex; }
 }
 
 .hero__title {
