@@ -78,7 +78,12 @@
     }
 
     var sections = links
-      .map(function (l) { return document.querySelector(l.getAttribute("href")); })
+      .map(function (l) {
+        // Sur les pages secondaires les liens valent "index.html#section" :
+        // ce n'est pas un sélecteur valide, on ne garde que les ancres locales.
+        var href = l.getAttribute("href") || "";
+        return href.charAt(0) === "#" ? document.querySelector(href) : null;
+      })
       .filter(Boolean);
 
     if (sections.length && "IntersectionObserver" in window) {
@@ -129,6 +134,15 @@
     activate(current.dataset.day);
   }
 
+  /* ---------- Compteur du Wall of fame ---------- */
+  function initBrickCount() {
+    var target = document.querySelector("[data-brick-count]");
+    if (!target) return;
+    // On ne compte que les vraies briques de noms, pas la brique d'appel au don.
+    var bricks = document.querySelectorAll(".wall .brick:not(.brick--cta)");
+    if (bricks.length) target.textContent = String(bricks.length);
+  }
+
   /* ---------- Lancement protégé ---------- */
   function start() {
     // Le reveal d'abord : priorité à la visibilité du contenu.
@@ -138,6 +152,7 @@
     }
     try { initNav(); } catch (e) { /* navigation non critique */ }
     try { initProgramme(); } catch (e) { /* onglets non critiques */ }
+    try { initBrickCount(); } catch (e) { /* compteur non critique */ }
   }
 
   if (document.readyState === "loading") {

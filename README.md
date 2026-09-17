@@ -23,12 +23,14 @@ hébergeur (Infomaniak, Netlify, Vercel, OVH…). Aucune configuration requise.
 
 ```
 site/
-├── index.html            Page unique, sections ancrées
+├── index.html            Accueil, sections ancrées
+├── remerciements.html    Wall of fame — le mur des contributeurs
 ├── css/
 │   ├── styles.css        Point d'entrée (@import des modules)
 │   ├── space-grotesk.css Police locale (Space Grotesk variable)
 │   ├── reset.css · base.css (variables, typo, helpers)
-│   └── header / hero / films / programme / privatisation / infos / apropos / footer
+│   ├── header / hero / films / programme / privatisation / infos / apropos / footer
+│   └── remerciements.css Le mur de briques
 ├── js/
 │   └── app.js            Menu mobile, header au scroll, onglets jours, apparitions
 └── fonts/                Space Grotesk (.woff2)
@@ -43,3 +45,29 @@ site/
 
 > Les synopsis et l'organisation des séances sont des exemples crédibles à
 > remplacer par les données réelles de la semaine.
+
+## Wall of fame (`remerciements.html`)
+
+Le mur des remerciements. Une brique = un contributeur, **tous écrits dans la
+même taille de caractères** : c'est la règle posée par le cinéma, il n'y a
+aucune hiérarchie entre un don de dix francs et une institution.
+
+Pour mettre la liste à jour, éditer le `<ul class="wall">` — une ligne par
+contributeur :
+
+```html
+<li class="brick">Prénom Nom</li>
+```
+
+- L'ordre du fichier est l'ordre d'affichage ; les rangées se recomposent
+  toutes seules selon la largeur de l'écran.
+- Le compteur « X noms sur le mur » se recalcule tout seul (`data-brick-count`).
+- Garder `<li class="brick brick--cta">` en **dernière** position : cette brique
+  renvoie vers la section « Rejoindre le mur » et absorbe l'espace restant de la
+  dernière rangée.
+- **Ne jamais** ajouter de `font-size`, de `style` ou de classe de mise en avant
+  sur une brique : cela casserait la règle de la taille unique.
+
+> ⚠️ Les noms actuellement en place sont **fictifs** : ils servent uniquement à
+> juger le rendu du mur et doivent être remplacés par la liste réelle des
+> contributeurs avant la mise en ligne.
