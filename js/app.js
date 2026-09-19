@@ -134,7 +134,7 @@
     activate(current.dataset.day);
   }
 
-  /* ---------- Compteur du Wall of fame ---------- */
+  /* ---------- Compteur du mur des remerciés ---------- */
   function initBrickCount() {
     var target = document.querySelector("[data-brick-count]");
     if (!target) return;

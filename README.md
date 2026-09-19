@@ -24,13 +24,13 @@ hébergeur (Infomaniak, Netlify, Vercel, OVH…). Aucune configuration requise.
 ```
 site/
 ├── index.html            Accueil, sections ancrées
-├── remerciements.html    Wall of fame — le mur des contributeurs
+├── merci.html            Le mur des remerciés
 ├── css/
 │   ├── styles.css        Point d'entrée (@import des modules)
 │   ├── space-grotesk.css Police locale (Space Grotesk variable)
 │   ├── reset.css · base.css (variables, typo, helpers)
 │   ├── header / hero / films / programme / privatisation / infos / apropos / footer
-│   └── remerciements.css Le mur de briques
+│   └── merci.css         Le mur de briques + la case de l'accueil
 ├── js/
 │   └── app.js            Menu mobile, header au scroll, onglets jours, apparitions
 └── fonts/                Space Grotesk (.woff2)
@@ -46,11 +46,16 @@ site/
 > Les synopsis et l'organisation des séances sont des exemples crédibles à
 > remplacer par les données réelles de la semaine.
 
-## Wall of fame (`remerciements.html`)
+## Le mur (`merci.html`)
 
-Le mur des remerciements. Une brique = un contributeur, **tous écrits dans la
-même taille de caractères** : c'est la règle posée par le cinéma, il n'y a
-aucune hiérarchie entre un don de dix francs et une institution.
+Une brique = une personne remerciée, **toutes écrites dans la même taille de
+caractères** : c'est la règle posée par le cinéma, il n'y a aucune hiérarchie
+entre un don de dix francs et une institution.
+
+Le cinéma ne veut qu'**un seul mot** pour désigner cette page : « Merci ».
+Ni « Remerciements », ni « Wall of fame » — c'était redondant. La case de
+l'accueil (après la section « Le lieu ») et le lien du footer portent donc
+tous les deux ce mot, et la page ne le répète pas dans un sur-titre.
 
 Pour mettre la liste à jour, éditer le `<ul class="wall">` — une ligne par
 contributeur :
@@ -65,9 +70,10 @@ contributeur :
 - Garder `<li class="brick brick--cta">` en **dernière** position : cette brique
   renvoie vers la section « Rejoindre le mur » et absorbe l'espace restant de la
   dernière rangée.
+- Ne pas réintroduire de titre « Remerciements » sur la page : voir ci-dessus.
 - **Ne jamais** ajouter de `font-size`, de `style` ou de classe de mise en avant
   sur une brique : cela casserait la règle de la taille unique.
 
 > ⚠️ Les noms actuellement en place sont **fictifs** : ils servent uniquement à
 > juger le rendu du mur et doivent être remplacés par la liste réelle des
-> contributeurs avant la mise en ligne.
+> personnes remerciées avant la mise en ligne.

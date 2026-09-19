@@ -1,5 +1,5 @@
 /* ============================================================
-   REMERCIEMENTS — Wall of fame
+   MERCI — le mur des remerciés
 
    RÈGLE ABSOLUE (demande du cinéma) :
    toutes les briques partagent EXACTEMENT la même taille de
@@ -8,19 +8,18 @@
    ============================================================ */
 
 /* ---- En-tête de page ---- */
-.wof-hero {
+.merci-hero {
   padding-block: clamp(2.5rem, 6vw, 4.5rem) clamp(1.75rem, 4vw, 3rem);
 }
 
-.wof-hero__eyebrow {
+.merci-hero__eyebrow {
   display: flex;
   flex-wrap: wrap;
   gap: 0.6rem 1.4rem;
   color: var(--ink-soft);
 }
-.wof-hero__eyebrow span:first-child { color: var(--accent); }
 
-.wof-hero__title {
+.merci-hero__title {
   margin-top: clamp(1rem, 2.5vw, 1.75rem);
   font-size: var(--fs-display);
   font-weight: 600;
@@ -28,16 +27,16 @@
   letter-spacing: -0.035em;
 }
 
-.wof-hero__grid {
+.merci-hero__grid {
   display: grid;
   gap: clamp(1rem, 3vw, 2.5rem);
   margin-top: clamp(1.5rem, 3vw, 2.25rem);
 }
-.wof-hero__lead { max-width: 30ch; }
-.wof-hero__note { max-width: 52ch; color: var(--ink-soft); }
-.wof-hero__note strong { color: var(--ink); font-weight: 600; }
+.merci-hero__lead { max-width: 30ch; }
+.merci-hero__note { max-width: 52ch; color: var(--ink-soft); }
+.merci-hero__note strong { color: var(--ink); font-weight: 600; }
 
-.wof-hero__count {
+.merci-hero__count {
   margin-top: clamp(1.5rem, 3vw, 2.25rem);
   padding-top: 1.1rem;
   border-top: 1px solid var(--line);
@@ -46,16 +45,16 @@
   text-transform: uppercase;
   color: var(--ink-soft);
 }
-.wof-hero__count span { color: var(--accent); font-weight: 600; }
+.merci-hero__count span { color: var(--accent); font-weight: 600; }
 
 @media (min-width: 880px) {
-  .wof-hero__grid { grid-template-columns: 1fr 1fr; align-items: start; }
+  .merci-hero__grid { grid-template-columns: 1fr 1fr; align-items: start; }
 }
 
 /* ---- Le mur ----
    Le conteneur fait le mortier, les briques sont posées dessus :
    le fond du conteneur ne transparaît que dans les joints (gap). */
-.wof { padding-block: clamp(2rem, 4vw, 3.5rem); }
+.merci { padding-block: clamp(2rem, 4vw, 3.5rem); }
 
 .wall {
   --mortar: 3px;
@@ -125,7 +124,7 @@
 .brick--cta:hover { background: var(--accent); color: var(--accent-ink); }
 
 /* ---- Rejoindre le mur ---- */
-.wof-join__grid {
+.merci-join__grid {
   /* Même cadre que .infos__grid : cohérence avec le reste du site. */
   display: grid;
   gap: clamp(1.5rem, 3vw, 1px);
@@ -135,24 +134,24 @@
   overflow: hidden;
 }
 @media (min-width: 760px) {
-  .wof-join__grid { grid-template-columns: repeat(3, 1fr); }
+  .merci-join__grid { grid-template-columns: repeat(3, 1fr); }
 }
-.wof-join .info-card .sub {
+.merci-join .info-card .sub {
   color: var(--ink-soft);
   font-size: 0.85rem;
 }
 /* Les intitulés de ligne sont plus longs qu'en page d'accueil : on garde
    toujours un blanc entre l'intitulé et sa valeur. */
-.wof-join .line span { padding-right: 0.8rem; }
+.merci-join .line span { padding-right: 0.8rem; }
 
 /* ---- Lien vers le mur depuis le footer ---- */
-.footer__wof {
+.footer__merci {
   margin-top: 0.9rem;
   color: var(--accent) !important;
   font-weight: 500;
 }
-.footer__wof:hover { color: var(--paper) !important; }
-.footer__wof.is-current { color: rgba(255, 255, 255, 0.45) !important; }
+.footer__merci:hover { color: var(--paper) !important; }
+.footer__merci.is-current { color: rgba(255, 255, 255, 0.45) !important; }
 
 /* ---- Écrans étroits : briques un peu plus serrées ---- */
 @media (max-width: 560px) {
@@ -163,4 +162,41 @@
 
 @media (prefers-reduced-motion: reduce) {
   .brick { transition: none; }
+}
+
+/* ---- La case « Merci » de l'accueil ---- */
+.merci-case {
+  display: grid;
+  gap: 0.9rem clamp(1.5rem, 4vw, 3rem);
+  align-items: center;
+  padding: clamp(1.75rem, 4vw, 2.75rem);
+  background: var(--black);
+  color: var(--paper);
+  border-radius: var(--radius);
+  transition: background 0.25s ease-out;
+}
+.merci-case__title {
+  font-size: var(--fs-h2);
+  font-weight: 600;
+  line-height: 1;
+  letter-spacing: -0.02em;
+}
+.merci-case__text {
+  max-width: 46ch;
+  color: rgba(255, 255, 255, 0.68);
+}
+.merci-case__go {
+  font-size: var(--fs-mono);
+  font-weight: 500;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: var(--accent);
+  white-space: nowrap;
+}
+.merci-case:hover { background: var(--accent); }
+.merci-case:hover .merci-case__text { color: rgba(255, 255, 255, 0.88); }
+.merci-case:hover .merci-case__go { color: var(--accent-ink); }
+
+@media (min-width: 860px) {
+  .merci-case { grid-template-columns: auto 1fr auto; }
 }
