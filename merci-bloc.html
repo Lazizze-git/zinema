@@ -1,0 +1,194 @@
+<!-- ============================================================
+     MERCI — le mur des remerciés
+     À coller dans la page MERCI, entre les tuiles (INFOS / VOIR LES
+     SÉANCES) et le footer.
+
+     Pensez aussi à SUPPRIMER le sur-titre gris « REMERCIEMENTS »
+     au-dessus du grand « MERCI » : c'est le doublon que le cinéma
+     a demandé d'enlever.
+
+     Tout est autonome : styles inclus, classes préfixées zm- pour ne
+     rien casser ailleurs. 144 noms, tous à la même taille — ne jamais
+     ajouter de font-size sur une brique.
+     ============================================================ -->
+<style>
+.zm-merci { --zm-ink:#111111; --zm-paper:#ebeae8; --zm-rule:2px; }
+.zm-merci, .zm-merci * { box-sizing: border-box; }
+.zm-wall {
+  display: flex;
+  flex-wrap: wrap;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+  border-top: var(--zm-rule) solid var(--zm-ink);
+  border-left: var(--zm-rule) solid var(--zm-ink);
+}
+.zm-brick {
+  flex: 1 1 auto;
+  padding: 0.8rem 1rem;
+  border-right: var(--zm-rule) solid var(--zm-ink);
+  border-bottom: var(--zm-rule) solid var(--zm-ink);
+  background: var(--zm-paper);
+  color: var(--zm-ink);
+  /* TAILLE UNIQUE pour tout le monde — c'est la règle. */
+  font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+  font-size: clamp(0.72rem, 0.55rem + 0.45vw, 0.95rem);
+  font-weight: 700;
+  line-height: 1.2;
+  letter-spacing: 0.01em;
+  text-transform: uppercase;
+  white-space: nowrap;
+}
+@media (max-width: 640px) {
+  .zm-brick { padding: 0.7rem 0.75rem; white-space: normal; }
+}
+</style>
+
+<section class="zm-merci">
+  <ul class="zm-wall">
+    <li class="zm-brick">Abel Davoine</li>
+    <li class="zm-brick">Adriana Bouchat</li>
+    <li class="zm-brick">Adrien Romedienne</li>
+    <li class="zm-brick">Agnès Boudry</li>
+    <li class="zm-brick">Alain Weber</li>
+    <li class="zm-brick">Alfio di Guardio</li>
+    <li class="zm-brick">Anaïs Emery</li>
+    <li class="zm-brick">Anaïs Goudal</li>
+    <li class="zm-brick">Annaïk Pitteloud</li>
+    <li class="zm-brick">Anne Delseth</li>
+    <li class="zm-brick">Anthony Vouardoux</li>
+    <li class="zm-brick">Antoine Cattin</li>
+    <li class="zm-brick">Auriol Zima</li>
+    <li class="zm-brick">Bastien Moeckli</li>
+    <li class="zm-brick">Canton de Vaud</li>
+    <li class="zm-brick">Carine Maillard</li>
+    <li class="zm-brick">Caroline Suard</li>
+    <li class="zm-brick">Cédric Decroux</li>
+    <li class="zm-brick">Céline Macherel</li>
+    <li class="zm-brick">Christiane Perrin Toplitsch</li>
+    <li class="zm-brick">Christophe Billeter</li>
+    <li class="zm-brick">Christophe Piguet</li>
+    <li class="zm-brick">Claire Felix</li>
+    <li class="zm-brick">Claude Joyet</li>
+    <li class="zm-brick">Cliff Mac Bee</li>
+    <li class="zm-brick">Cynthia Kraus</li>
+    <li class="zm-brick">Damien Frei</li>
+    <li class="zm-brick">Daniel Guttmann</li>
+    <li class="zm-brick">Delphine Jeanneret</li>
+    <li class="zm-brick">Delphine Veillon</li>
+    <li class="zm-brick">Denis Vallon</li>
+    <li class="zm-brick">Dominique Langevin</li>
+    <li class="zm-brick">Edouard Waintrop</li>
+    <li class="zm-brick">Elise Gagnebin-de-Bons</li>
+    <li class="zm-brick">Emmanuel Schmutz</li>
+    <li class="zm-brick">Eric Bouzigon</li>
+    <li class="zm-brick">Fabien Ruf</li>
+    <li class="zm-brick">Fernand Melgar</li>
+    <li class="zm-brick">Florence Nicollier</li>
+    <li class="zm-brick">Frédéric Gonseth</li>
+    <li class="zm-brick">Genêt Mayor</li>
+    <li class="zm-brick">Géraldine Savary</li>
+    <li class="zm-brick">Gérard Ruey</li>
+    <li class="zm-brick">Gilbert Gubler</li>
+    <li class="zm-brick">Gilles Meystre</li>
+    <li class="zm-brick">Gisèle Olmi</li>
+    <li class="zm-brick">Grégoire Junod</li>
+    <li class="zm-brick">Guy Meldem</li>
+    <li class="zm-brick">Hotels by Fassbind Lausanne Zürich</li>
+    <li class="zm-brick">Ingo Lambert Toplitsch</li>
+    <li class="zm-brick">Jacques Muehlethaler</li>
+    <li class="zm-brick">Jacques Perrier</li>
+    <li class="zm-brick">Janka Rahm</li>
+    <li class="zm-brick">Jean Perret</li>
+    <li class="zm-brick">Jean-François Sutterlet</li>
+    <li class="zm-brick">Jean-Jacques Schilt</li>
+    <li class="zm-brick">Jean-Marc Lehmann</li>
+    <li class="zm-brick">Jean-Marc Rusconi</li>
+    <li class="zm-brick">Jennifer Cerchia</li>
+    <li class="zm-brick">Jérémie Kisling</li>
+    <li class="zm-brick">Jérôme Roniger</li>
+    <li class="zm-brick">Joaquim Manzoni</li>
+    <li class="zm-brick">Jonas Marguet</li>
+    <li class="zm-brick">Julien Bodivit</li>
+    <li class="zm-brick">Julien Moeschler</li>
+    <li class="zm-brick">Karen Ichters</li>
+    <li class="zm-brick">Karine Odorici</li>
+    <li class="zm-brick">Keel Chan</li>
+    <li class="zm-brick">Laura Grandjean</li>
+    <li class="zm-brick">Laurent Gérard</li>
+    <li class="zm-brick">Laurent Steiert</li>
+    <li class="zm-brick">Leila Klouche</li>
+    <li class="zm-brick">Liora Zittoun</li>
+    <li class="zm-brick">Lorraine Pidoux</li>
+    <li class="zm-brick">Loterie Romande</li>
+    <li class="zm-brick">Louise Roduit</li>
+    <li class="zm-brick">Luc Peter</li>
+    <li class="zm-brick">Manuel Borruat</li>
+    <li class="zm-brick">Marie Klay</li>
+    <li class="zm-brick">Marie Vachette</li>
+    <li class="zm-brick">Marie-Claude Jequier</li>
+    <li class="zm-brick">Marion Baslé</li>
+    <li class="zm-brick">Marion Duval</li>
+    <li class="zm-brick">Martine Guttmann</li>
+    <li class="zm-brick">Matthieu Capcarrère</li>
+    <li class="zm-brick">Mattia Fiumani</li>
+    <li class="zm-brick">Mélanie Mermod</li>
+    <li class="zm-brick">Mélodie Mousset</li>
+    <li class="zm-brick">Michaël Hedjem</li>
+    <li class="zm-brick">Michel Barraz</li>
+    <li class="zm-brick">Mike Pfenninger</li>
+    <li class="zm-brick">Mme &amp; M. Perrières</li>
+    <li class="zm-brick">Muriel Jost</li>
+    <li class="zm-brick">Nathalie Saugy</li>
+    <li class="zm-brick">Nathanael Ha-Vinh</li>
+    <li class="zm-brick">Nicola Di Pinto</li>
+    <li class="zm-brick">Nicolas Appelt</li>
+    <li class="zm-brick">Nicolas Bideau</li>
+    <li class="zm-brick">Norbert Creutz</li>
+    <li class="zm-brick">OFC (Succès-Cinéma)</li>
+    <li class="zm-brick">Olaf Nitschmann</li>
+    <li class="zm-brick">Olivier Aeby</li>
+    <li class="zm-brick">Ondine Jung</li>
+    <li class="zm-brick">Pascal Knoerr</li>
+    <li class="zm-brick">Pascal Pelissier</li>
+    <li class="zm-brick">Patrick Suhner</li>
+    <li class="zm-brick">Philippe Clivaz</li>
+    <li class="zm-brick">Philippe Modoux</li>
+    <li class="zm-brick">Pierre Agthe</li>
+    <li class="zm-brick">Pierre-Antoine Grisoni</li>
+    <li class="zm-brick">Pierre-Yves Borgeaud</li>
+    <li class="zm-brick">Pierre-Yves Fiora</li>
+    <li class="zm-brick">Raphaël Sibilla</li>
+    <li class="zm-brick">Raphaël Wagnières</li>
+    <li class="zm-brick">Regina Boelsterli</li>
+    <li class="zm-brick">Renato Morandi</li>
+    <li class="zm-brick">Roland Dapples</li>
+    <li class="zm-brick">Romeo Andreani</li>
+    <li class="zm-brick">Sandrine Kuster</li>
+    <li class="zm-brick">Sara Bochicchio</li>
+    <li class="zm-brick">Sebastiano Conforti</li>
+    <li class="zm-brick">Sébastien Riond</li>
+    <li class="zm-brick">Sibylle Koessler</li>
+    <li class="zm-brick">Sigismond de Vajay</li>
+    <li class="zm-brick">Silvia Zamora</li>
+    <li class="zm-brick">Stéphane Détruche</li>
+    <li class="zm-brick">Stéphane Goël</li>
+    <li class="zm-brick">Stéphane Noël</li>
+    <li class="zm-brick">Stevan Haener</li>
+    <li class="zm-brick">Tatiana Rihs</li>
+    <li class="zm-brick">Thierry Jobin</li>
+    <li class="zm-brick">Thierry Spicher &amp; Elena Tatti</li>
+    <li class="zm-brick">Tom Guex</li>
+    <li class="zm-brick">Urs Seidel</li>
+    <li class="zm-brick">Valérie Debeaumont</li>
+    <li class="zm-brick">Vera Gilardoni</li>
+    <li class="zm-brick">Ville de Lausanne</li>
+    <li class="zm-brick">Vincent Pluss</li>
+    <li class="zm-brick">Xavier Pattaroni</li>
+    <li class="zm-brick">Xavière Sennac</li>
+    <li class="zm-brick">Yann Delmonico</li>
+    <li class="zm-brick">Yann Mingard</li>
+    <li class="zm-brick">Yvan Ziadé</li>
+    <li class="zm-brick">Yves Fidalgo</li>
+  </ul>
+</section>
