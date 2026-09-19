@@ -74,6 +74,21 @@ contributeur :
 - **Ne jamais** ajouter de `font-size`, de `style` ou de classe de mise en avant
   sur une brique : cela casserait la règle de la taille unique.
 
-> ⚠️ Les noms actuellement en place sont **fictifs** : ils servent uniquement à
-> juger le rendu du mur et doivent être remplacés par la liste réelle des
-> personnes remerciées avant la mise en ligne.
+### Provenance de la liste
+
+Les 144 noms viennent de l'ancien site, hébergé chez Infomaniak :
+`web/sites/zinema/programme.htm`, section `REMERCIEMENTS`. C'était un
+document Word enregistré en page web, encodé en `windows-1252` — les noms y
+étaient séparés par deux espaces insécables, d'où l'extraction au caractère
+près plutôt qu'à l'œil.
+
+Deux retouches par rapport à la source :
+
+- les deux doublons (**Alain Weber**, **Philippe Clivaz**) ont été fusionnés ;
+- la liste est triée par prénom, ce que la source faisait déjà pour 129 de ses
+  146 entrées — les 17 autres, ajoutées en tête au fil du temps, ont été
+  reclassées.
+
+Les institutions (Canton de Vaud, Loterie Romande, Ville de Lausanne, OFC,
+Hotels by Fassbind) sont mêlées aux particuliers, sans distinction : c'est la
+règle posée par le cinéma.
